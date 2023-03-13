@@ -1,0 +1,78 @@
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%						GENRAL SETTINGS OF THE DOCUMENT
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% !TeX spellcheck = en_US
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+\documentclass[11pt,a4paper,oneside]{report} % Single-side
+%\documentclass[11pt,a4paper,twoside,openright]{report} % Duplex
+\input{include/packages}
+\newcommand{\vikszerzoVezeteknev}{Erbasi} %Author
+\newcommand{\vikszerzoKeresztnev}{Türker}
+\newcommand{\vikkonzulensAMegszolitas}{Dr.~} %Advisor #1
+\newcommand{\vikkonzulensAVezeteknev}{Vizer}
+\newcommand{\vikkonzulensAKeresztnev}{Dániel}
+\newcommand{\vikkonzulensBMegszolitas}{Dr.~} %Advisor #2
+\newcommand{\vikkonzulensBVezeteknev}{Kiss}
+\newcommand{\vikkonzulensBKeresztnev}{Bálint}
+\newcommand{\vikkonzulensCMegszolitas}{} %Advisor #3
+\newcommand{\vikkonzulensCVezeteknev}{}
+\newcommand{\vikkonzulensCKeresztnev}{}
+\newcommand{\vikcim}{Affine Parameter-Dependent Lyapunov Stability Analysis of Electronic Power Steering Systems} %Title
+\newcommand{\viktanszek}{\bmeiit}%Department
+\newcommand{\vikdoktipus}{\bsc} %Document type (\bsc or \msc)
+\newcommand{\vikmunkatipusat}{} %For the "student declaration" section: thesis
+\newcommand{\szerzoMeta}{\vikszerzoVezeteknev{} \vikszerzoKeresztnev} % One author
+\input{include/thesis-en} %Settings for English documents
+\input{include/preamble}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%						The main part of the thesis
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{document}
+
+\pagenumbering{gobble} %Roman numerals page numbering
+
+\selectthesislanguage %English
+
+\include{include/project} %Task description
+
+\include{include/titlepage} %Thesis title page
+
+\tableofcontents\vfill %Table of Contents
+
+\include{include/declaration} %Student declaration
+
+\include{content/acknowledgement} %TODO
+
+\include{content/abstract} %TODO
+
+\include{content/symbol-list} %Symbol list
+
+\pagenumbering{arabic} %Arabic numeral page numbering
+
+\include{content/introduction} %TODO
+
+\include{content/lpv-model-stability} %TODO LPV INTRO
+
+\include{content/epas-lpv-model} %TODO EPAS INTRO
+
+\include{content/epas-lpv-affine-lyapunov}
+
+\include{content/epas-lpv-quadratic-stability}
+
+\include{content/conclusion} %TODO
+
+\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+
+\listoftables\addcontentsline{toc}{chapter}{\listtablename}
+
+\include{content/appendices} %TODO
+
+%Bibliography ~ To solve the bib problem F6 F11 F6 F6, then F7 (view pdf).
+\addcontentsline{toc}{chapter}{\bibname}
+
+\bibliography{bib/mybib}
+
+%\label{page:last}
+\end{document}

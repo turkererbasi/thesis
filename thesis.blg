@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: include/project.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: include/titlepage.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: include/declaration.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: content/acknowledgement.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: content/abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: content/symbol-list.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 32 items.
+A level-1 auxiliary file: content/lpv-model-stability.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: content/epas-lpv-model.aux
+Reallocating 'name_of_file' (item size: 1) to 37 items.
+A level-1 auxiliary file: content/epas-lpv-affine-lyapunov.aux
+Reallocating 'name_of_file' (item size: 1) to 41 items.
+A level-1 auxiliary file: content/epas-lpv-quadratic-stability.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: content/conclusion.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: content/appendices.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Database file #1: bib/mybib.bib
+Warning--entry type for "mercere2012identification" isn't style-file defined
+--line 22 of file bib/mybib.bib
+Warning--entry type for "vizer2015thesis" isn't style-file defined
+--line 32 of file bib/mybib.bib
+Warning--entry type for "wood1995control" isn't style-file defined
+--line 42 of file bib/mybib.bib
+You've used 9 entries,
+            2773 wiz_defined-function locations,
+            659 strings with 6498 characters,
+and the built_in function-call counts, 2970 in all, are:
+= -- 249
+> -- 121
+< -- 9
++ -- 45
+- -- 36
+* -- 181
+:= -- 459
+add.period$ -- 25
+call.type$ -- 9
+change.case$ -- 37
+chr.to.int$ -- 9
+cite$ -- 18
+duplicate$ -- 151
+empty$ -- 300
+format.name$ -- 47
+if$ -- 625
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 5
+newline$ -- 51
+num.names$ -- 36
+pop$ -- 108
+preamble$ -- 1
+purify$ -- 30
+quote$ -- 0
+skip$ -- 121
+stack$ -- 0
+substring$ -- 49
+swap$ -- 14
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 89
+warning$ -- 0
+while$ -- 29
+width$ -- 0
+write$ -- 113
+(There were 3 warnings)

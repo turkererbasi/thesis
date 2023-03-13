@@ -1,0 +1,56 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Beny{\'o}(2013)]{benyo2013eps}
+Imre Beny{\'o}.
+\newblock Eps steering system.
+\newblock Internal training material of ThyssenKrupp, 2013.
+
+\bibitem[Bronshtein and Semendyayev(2013)]{bronshtein2013handbook}
+Il{\'i}a~Nikolaevich Bronshtein and Konstantin~A Semendyayev.
+\newblock \emph{Handbook of mathematics}.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem[Cox et~al.(2018)Cox, Weiland, and T{\'o}th]{cox2018affine}
+Pepijn~B Cox, Siep Weiland, and Roland T{\'o}th.
+\newblock Affine parameter-dependent lyapunov functions for lpv systems with
+  affine dependence.
+\newblock \emph{IEEE Transactions on Automatic Control}, 63\penalty0
+  (11):\penalty0 3865--3872, 2018.
+\newblock \doi{10.1109/TAC.2018.2824982}.
+
+\bibitem[Fazekas(2010)]{fazekas2010fundamentals}
+Csaba Fazekas.
+\newblock Fundementals of control engineering.
+\newblock Internal training material of ThyssenKrupp, Sep 2010.
+
+\bibitem[Kailath(1980)]{kailath1980linear}
+Thomas Kailath.
+\newblock \emph{Linear systems}, volume 156.
+\newblock Prentice-Hall Englewood Cliffs, NJ, 1980.
+
+\bibitem[Merc{\`e}re(2012)]{mercere2012identification}
+Guillaume Merc{\`e}re.
+\newblock Identification of multi-input multi-output state-space systems: from
+  linear time-invariant to linear parameter-varying models, Nov 2012.
+
+\bibitem[Paholics(2006)]{paholics2006epas}
+G{\'a}bor Paholics.
+\newblock Epas steering column torque controller design description.
+\newblock Internal training material of ThyssenKrupp, 2006.
+
+\bibitem[Vizer(2015)]{vizer2015thesis}
+D{\'a}niel Vizer.
+\newblock Application of the {$\mathcal{H}$}{$\infty$}-norm for the
+  identification of linear time-invariant and linear parameter-varying models,
+  Dec 2015.
+
+\bibitem[Wood(1995)]{wood1995control}
+Giles~David Wood.
+\newblock Control of parameter-dependent mechanical systems, Nov 1995.
+
+\end{thebibliography}

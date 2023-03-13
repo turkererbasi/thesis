@@ -1,0 +1,214 @@
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\chapter{Linear parameter varying modeling and stability} 
+\label{chap_linear_parameter_varying_modeling_and_stability}
+% Approx. 10 pages
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Introduction}
+%TODO INTRODUCTION TO LPV SYSTEM ONLY VERBAL.
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{System classification}
+\label{sec_system_classification}
+
+Control systems can be grouped into main categories from different points of view and based on some parameters.
+
+Based on the number of inputs and outputs. Control systems can be classified as SISO control systems or MIMO control systems. When a system has only one input, it is called a single input system and is notated with the initials SI. If it has more than one input, the system is called a multiple input system, or MI system. If a system has only one output, it is called a single output system, or SO system. If it has more than one output, it is called a multiple output system, or MO system. This way, we can refer to any system with this convention. For example, for a single input, single output system, it can be said the system is a SISO system; if it has more inputs and more outputs, it can be said it is a MIMO system, etc.
+
+Based on the type of the signal used. Control systems can be classified as continuous-time control systems or discrete-time control systems. In continuous-time control systems, all the signals are continuous in time. However, in discrete-time control systems, there may be one or more discrete time signals.
+
+Based on the feedback signal. Control systems can be classified as feed-forward control systems, also called open-loop control systems, or feed-back control systems, also called closed-loop control systems. Feed-forward control systems do not utilize the output signal and do not feed it back to the system for correction. \Ie, the input does not self-correct using feedback from the output. On the other hand, feed-back control systems utilize the output signal for self-correction. So, the control action depends on the output. The error detector generates an error signal that is equal to the difference between the input and feedback signals, and then this error signal is fed to the controller.
+
+%TODO Add here a figure of a closed loop control system. general_control_sys.png
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{System representation} 
+\label{sec_system_representaion}
+
+A system may generally be thought of as an operator or transformation from the input to the output; hence, an equation can be used to describe how a system works~\citep{fazekas2010fundamentals}.
+
+\begin{align}
+	y(t) = G(u(t)) 
+\end{align}
+
+where, $u(t)$ is the input, $y(t)$ is the output and $G(\bullet)$ is the operator of the system. 
+
+The realizable systems are \textit{causal systems}, meaning that their current outputs are independent of their potential future inputs. The output is a signal generated and measured by the system. Noise or measurement error is generally included in the measurement~\citep[Chapter~2.1.1]{fazekas2010fundamentals}.
+
+The system is called linear if:
+
+\begin{subequations}	
+	\begin{align}
+		y_1(t) = G(u_1(t)) \text{ and } y_2(t) = G(u_2(t)) 
+		\\
+		a_1y_1(t) + a_2y_2(t) = G(a_1u_1(t) + a_2u_2(t))
+	\end{align}	
+\end{subequations}
+
+where, $a_1, a_2 \in \mathbb{R}$.
+
+The system is called linear time-invariant if the output of the system is independent form the time of the input, \ie, if:
+
+\begin{subequations} \label{eq_time_invariance}
+	\begin{align}
+		y(t) &= G(u(t)) 
+		\\
+		y(t - \tau) &= G(u(t - \tau)) 
+	\end{align}
+\end{subequations}
+
+where, $\tau$ is the time delay, and $\tau \in \mathbb{R}$.
+
+Equations above (\ref{eq_time_invariance}) indicates that the timing of the input has no bearing on how the system will behave; the timing of the experiment is meaningless. If the input is unchanged and the input is only time-shifted, the output is unchanged \citep{fazekas2010fundamentals}.
+
+If the system's output is delayed, we can represent it as
+
+\begin{align}
+	y(t) = G(u(t - \tau))
+\end{align}
+
+then, we say that system contains time delay.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\subsection{State space representation}
+\label{subsec_state_space_representaion}
+
+State variables are the minimum set that fully describes the system. Fully describes means there is enough information to predict future behavior. In order to understand if a variable is a state variable or not, one can ask the question, "What state will the system be in in one second?" If one can answer this question with only the necessary variables, which are the state variables.
+
+The state-space representation of a system is the set of all possible configurations of a system. The $x(t)$ is a vector of states, and it tells us what the state is at a given time; $\xi x(t)$ represents how the state vector changes.
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Linear time-invariant systems} 
+\label{sec_linear_time_invariant_systems}
+
+The LTI system in continuous time is defined by the following set of equations:
+
+\begin{subequations} \label{ss_lti}
+	\begin{align}
+		\xi x(t) &= A x(t) + B \omega(t) 
+		\\
+		z(t) &= C x(t) + D \omega(t)
+	\end{align}
+\end{subequations}
+
+where,
+
+\begin{itemize}
+	\item $t \in \mathbb{T}$, and $t$ defines \textit{time}.
+	\item $x(t) \in \mathbb{R}^{n_x}$, and $x(t)$ is the \textit{state vector}, and
+	$x(t_0) \in \mathbb{R}^{n_x}$ denotes the initial state.
+	\item $\omega(t) \in \mathbb{R}^{n_\omega + n_u}$, and 
+	$\omega(t)$ is the general \textit{the disturbance signal vector}, 
+	$n_1 ... n_\omega$ are the disturbance signals, and 
+	$n_1 ... n_u$ are the controllable inputs.
+	\item $z(t) \in \mathbb{R}^{n_z + n_y}$, and 
+	$z(t)$ denotes the general \textit{output vector}, and 
+	$n_1 ... n_z$ are the output signals, and 
+	$n_1 ... n_y$ are the performance signals.
+\end{itemize}
+
+$x(t)$, $\omega(t)$, $z(t)$ can be represented as follows:
+
+\begin{subequations}
+	\begin{align}
+		x(t) &=	[x_{n_1}(t), \cdots, x_{n_x}(t)]^T 
+		\\
+		\omega(t) &= [\omega_{n_1}(t), \cdots, \omega_{{n_\omega}}(t),
+		u_{n_1}(t), \cdots, u_{n_u}(t)]^T 
+		\\
+		z(t) &= [z_{n_1}(t), \cdots, z_{n_z}(t),
+		y_{n_1}(t), \cdots, y_{n_y}(t)]^T	 
+	\end{align}
+\end{subequations}
+
+\begin{itemize}
+	\item $A$ is the \textit{system matrix} 
+	with the size of $A \in \mathbb{R}^{n_x \times n_x}$,
+	\item $B$ is the \textit{disturbance matrix} 
+	with the size of $B \in \mathbb{R}^{n_x \times (n_\omega + n_u)}$,
+	\item $C$ is the \textit{output matrix} 
+	with the size of $C \in \mathbb{R}^{(n_z + n_y) \times n_x}$, and
+	\item $D$ 
+	with the size of $D \in \mathbb{R}^{(n_z + n_y) \times (n_\omega + n_u)}$.
+\end{itemize}
+	
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Linear time-varying systems} 
+\label{sec_linear_time_varying_systems}
+
+The system mentioned, in the Section~\ref{sec_linear_time_invariant_systems}, above can be generalized if the system is varying upon time. These types of systems are called linear time-variant, and their state-space representation is the following:
+
+\begin{subequations} \label{ss_ltv}
+	\begin{align}
+		\xi x(t) &= A(t)x(t) + B(t)u(t) 
+		\\
+		y(t) &= C(t)x(t) + D(t)u(t)
+	\end{align}
+\end{subequations}
+
+where, %TODO talk about matrices varying on time
+		
+\begin{itemize}
+	\item $A(t) \in \mathbb{R}^{n_x \times n_x}$, 
+	\item $B(t) \in \mathbb{R}^{n_x \times (n_\omega + n_u)}$, 
+	\item $C(t) \in \mathbb{R}^{(n_z + n_y) \times n_x}$, 
+	\item $D(t) \in \mathbb{R}^{(n_z + n_y) \times (n_\omega + n_u)}$. 
+\end{itemize}
+	
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Linear parameter-varying systems} 
+\label{sec_linear_parameter_varying_systems}
+
+A system that is linear parameter-varying depends on one or more parameters. A specific class of time-varying system known as a LPV system is a system where one or more external parameters are used to introduce time dependence into the state equations~\citep{wood1995control}. The LPV system's general state space representation is frequently characterized as
+
+\begin{subequations} \label{ss_lpv}
+	\begin{align}
+		\xi x(t) &= \mathcal{A}(p(t))x(t) + \mathcal{B}(p(t))\omega(t) 
+		\\
+		z(t) &=	\mathcal{C}(p(t))x(t) + \mathcal{D}(p(t))\omega(t)
+	\end{align}
+\end{subequations}
+	
+where, $p(t) \in \mathbb{P} \subseteq \mathbb{R}^{n_p}$ is the time-varying parameter or \ie , the scheduling signal.
+
+Contrary to the standard LTI state-space forms, the matrices ($\mathcal{A, B, C, D}$) are functions of measurable time-varying parameters in (\ref{ss_lpv}) are considered to be affine functions of $p$, and gathered into the vector $p(t) \in \mathbb{P} \subseteq \mathbb{R}^{n_p}$ where, $\mathbb{P}$ is so-called scheduling space~\citep{mercere2012identification}. 
+
+\begin{subequations}
+	\begin{align}
+		\mathcal{A}(p(t)) &= A_0 + \sum_{i=1}^{n_p} A_i p_i(t) 
+		\\
+		\mathcal{B}(p(t)) &= B_0 + \sum_{i=1}^{n_p} B_i p_i(t) 
+		\\
+		\mathcal{C}(p(t)) &= C_0 + \sum_{i=1}^{n_p} C_i p_i(t) 
+		\\
+		\mathcal{D}(p(t)) &= D_0 + \sum_{i=1}^{n_p} D_i p_i(t)
+	\end{align}
+\end{subequations}
+
+with known matrices
+
+\begin{subequations}
+		\begin{align}
+			A_i (p(t)) &\in \mathbb{R}^{n_x \times n_x}
+			\\
+			B_i (p(t)) &\in \mathbb{R}^{n_x \times (n_\omega + n_u)}
+			\\
+			C_i (p(t)) &\in \mathbb{R}^{(n_z + n_y) \times n_x}
+			\\
+			D_i (p(t)) &\in \mathbb{R}^{(n_z + n_y) \times (n_\omega + n_u)}
+		\end{align}
+\end{subequations}
+
+for $i = 0,...,n_p$ and $p_i$ is the $i^{th}$ element of the scheduling variable~\citep{cox2018affine}. %TODO Maybe add upsidedown A for "for i" part.
+
+Due to linearity from $x$ to $z$, asymptotic stability (see Definition~\ref{def_asymptotical_stability}), of above equations (\ref{ss_lpv}) is dictated by stability of the fixed point at the origin of the autonomous part of the equation~(\ref{ss_lpv}),~\ie ,
+
+\begin{align}
+	\xi x(t) = \underbrace{\mathcal{A}(p(t))x(t)}_\text{f(x(t),p(t))} & & 
+	x(0) = x_0
+\end{align}
+
+\definition \textbf{Asymptotical stability} \label{def_asymptotical_stability} \\
+An LPV system, represented in terms of the LPV state space equations (\ref{ss_lpv}), is called \textit{asymptotically stable}, if, for all trajectories of $(\omega(t), p(t), z(t))$ satisfying the equations~(\ref{ss_lpv}) with $\omega(t) = 0$ for $t \geq 0$ and $p(t) \in \mathbb{p}$, it holds that $lim_{t \rightarrow \infty} |z(t)| = 0$~\citep{cox2018affine}.
